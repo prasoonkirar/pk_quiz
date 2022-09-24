@@ -1,4 +1,4 @@
-const questions = [
+const round1 = [
     {
         question: "How many days makes a week ?",
         optionA: "10 days",
@@ -33,17 +33,10 @@ const questions = [
         optionC: "June",
         optionD: "August",
         correctOption: "optionC"
-    },
+    }
+];
 
-    {
-        question: "How manay hours can be found in a day ?",
-        optionA: "30 hours",
-        optionB: "38 hours",
-        optionC: "48 hours",
-        optionD: "24 hours",
-        correctOption: "optionD"
-    },
-
+const round2 = [
     {
         question: "Which is the longest river in the world ?",
         optionA: "River Nile",
@@ -78,17 +71,10 @@ const questions = [
         optionC: "Eight",
         optionD: "Eleven",
         correctOption: "optionD"
-    },
+    }
+];
 
-    {
-        question: `"You Can't see me" is a popular saying by`,
-        optionA: "Eminem",
-        optionB: "Bill Gates",
-        optionC: "Chris Brown",
-        optionD: "John Cena",
-        correctOption: "optionD"
-    },
-
+const round3 = [    
     {
         question: "Where is the world tallest building located ?",
         optionA: "Africa",
@@ -124,145 +110,111 @@ const questions = [
         optionC: "Germany",
         optionD: "France",
         correctOption: "optionD"
-    },
-
-    {
-        question: "Which US state was Donald Trump Born ?",
-        optionA: "New York",
-        optionB: "California",
-        optionC: "New Jersey",
-        optionD: "Los Angeles",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "How man states does Nigeria have ?",
-        optionA: "24",
-        optionB: "30",
-        optionC: "36",
-        optionD: "37",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "____ is the capital of Nigeria ?",
-        optionA: "Abuja",
-        optionB: "Lagos",
-        optionC: "Calabar",
-        optionD: "Kano",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "Los Angeles is also known as ?",
-        optionA: "Angels City",
-        optionB: "Shining city",
-        optionC: "City of Angels",
-        optionD: "Lost Angels",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "What is the capital of Germany ?",
-        optionA: "Georgia",
-        optionB: "Missouri",
-        optionC: "Oklahoma",
-        optionD: "Berlin",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "How many sides does an hexagon have ?",
-        optionA: "Six",
-        optionB: "Sevene",
-        optionC: "Four",
-        optionD: "Five",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "How many planets are currently in the solar system ?",
-        optionA: "Eleven",
-        optionB: "Seven",
-        optionC: "Nine",
-        optionD: "Eight",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "Which Planet is the hottest ?",
-        optionA: "Jupitar",
-        optionB: "Mercury",
-        optionC: "Earth",
-        optionD: "Venus",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "where is the smallest bone in human body located?",
-        optionA: "Toes",
-        optionB: "Ears",
-        optionC: "Fingers",
-        optionD: "Nose",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "How many hearts does an Octopus have ?",
-        optionA: "One",
-        optionB: "Two",
-        optionC: "Three",
-        optionD: "Four",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "How many teeth does an adult human have ?",
-        optionA: "28",
-        optionB: "30",
-        optionC: "32",
-        optionD: "36",
-        correctOption: "optionC"
     }
-
-]
-
-
-let shuffledQuestions = [] //empty array to hold shuffled selected questions
-
-function handleQuestions() { 
-    //function to shuffle and push 10 questions to shuffledQuestions array
-    while (shuffledQuestions.length <= 9) {
-        const random = questions[Math.floor(Math.random() * questions.length)]
-        if (!shuffledQuestions.includes(random)) {
-            shuffledQuestions.push(random)
-        }
-    }
-}
+];
 
 
 let questionNumber = 1
 let playerScore = 0  
 let wrongAttempt = 0 
 let indexNumber = 0
+var myInterval;
+var roundNumber = 1;
+var team1Score = 0;
+var team2Score = 0;
+var team3Score = 0;
+var team4Score = 0;
+
 
 // function for displaying next question in the array to dom
 function NextQuestion(index) {
-    handleQuestions()
-    const currentQuestion = shuffledQuestions[index]
-    document.getElementById("question-number").innerHTML = questionNumber
-    document.getElementById("player-score").innerHTML = playerScore
+
+    var team1ScoreEl = document.getElementById('team1-score');
+    var team2ScoreEl = document.getElementById('team2-score');
+    var team3ScoreEl = document.getElementById('team3-score');
+    var team4ScoreEl = document.getElementById('team4-score');
+
+    team1ScoreEl.textContent = team1Score;
+
+    team2ScoreEl.textContent = team2Score;
+
+    team3ScoreEl.textContent = team3Score;
+
+    team4ScoreEl.textContent = team4Score;
+
+
+    let currentQuestion = {};
+    // handleQuestions()
+    if(roundNumber ==1){
+       currentQuestion = round1[index];
+    }
+    if(roundNumber ==2){
+        currentQuestion = round2[index];
+    }
+    if(roundNumber ==3){
+        currentQuestion = round3[index];
+    }
+
     document.getElementById("display-question").innerHTML = currentQuestion.question;
     document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
     document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
     document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
     document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
+    document.getElementById("questionStart").play();
+    document.getElementById('option-one').addEventListener("click", function(){
+        document.getElementById("answerLock").play();   
+    });
+    document.getElementById('option-two').addEventListener("click", function(){
+        document.getElementById("answerLock").play();   
+    });
+    document.getElementById('option-three').addEventListener("click", function(){
+        document.getElementById("answerLock").play();   
+    });
+    document.getElementById('option-four').addEventListener("click", function(){
+        document.getElementById("answerLock").play();   
+    });   
+
+    
+    
+    var countdownNumberEl = document.getElementById('countdown-number');
+    var countdown = 30;
+
+    countdownNumberEl.textContent = countdown;
+
+    if (roundNumber !=3) {
+        myInterval = setInterval(function() {
+          countdown = --countdown <= 0 ? "" : countdown;
+          if(countdown.length <= 0) {
+            document.getElementById("passAns").play();
+
+          }
+
+          countdownNumberEl.textContent = countdown;
+        }, 1000);    
+    }
+    
 
 }
 
 
 function checkForAnswer() {
-    const currentQuestion = shuffledQuestions[indexNumber] //gets current Question 
+    var countdownNumberEl = document.getElementById('countdown-number');
+    clearInterval(myInterval);
+    countdownNumberEl.textContent = "";
+
+
+    // const currentQuestion = shuffledQuestions[indexNumber] //gets current Question 
+    let currentQuestion ;
+    // handleQuestions()
+    if(roundNumber ==1){
+       currentQuestion = round1[indexNumber];
+    }
+    if(roundNumber ==2){
+        currentQuestion = round2[indexNumber];
+    }
+    if(roundNumber ==3){
+        currentQuestion = round3[indexNumber];
+    }
     const currentQuestionAnswer = currentQuestion.correctOption //gets current Question's answer
     const options = document.getElementsByName("option"); //gets all elements in dom with name of 'option' (in this the radio inputs)
     let correctOption = null
@@ -282,6 +234,7 @@ function checkForAnswer() {
     //checking if checked radio button is same as answer
     options.forEach((option) => {
         if (option.checked === true && option.value === currentQuestionAnswer) {
+            document.getElementById("correctAns").play();
             document.getElementById(correctOption).style.backgroundColor = "green"
             playerScore++
             indexNumber++
@@ -293,6 +246,7 @@ function checkForAnswer() {
 
         else if (option.checked && option.value !== currentQuestionAnswer) {
             const wrongLabelId = option.labels[0].id
+            document.getElementById("wrongAns").play();
             document.getElementById(wrongLabelId).style.backgroundColor = "red"
             document.getElementById(correctOption).style.backgroundColor = "green"
             wrongAttempt++
@@ -303,24 +257,47 @@ function checkForAnswer() {
             }, 1000)
         }
     })
+
+}
+
+function showAnswerToQuestion() {
+    checkForAnswer();
 }
 
 
 
 //called when the next button is called
 function handleNextQuestion() {
-    checkForAnswer()
+
+    if(roundNumber == 1 && round1.length == indexNumber){
+        document.getElementById('round2-modal').style.display = "flex"
+        document.getElementById("gameStart").play();
+        unCheckRadioButtons()
+        resetOptionBackground();
+        return;
+    }
+    if(roundNumber == 2 && round2.length == indexNumber){
+        document.getElementById('round3-modal').style.display = "flex"
+        document.getElementById("gameStart").play();
+        unCheckRadioButtons()
+        resetOptionBackground();
+        return;
+    }
+    if(roundNumber == 3 && round3.length == indexNumber){
+        handleEndGame();
+    }
+    // checkForAnswer()
     unCheckRadioButtons()
     //delays next question displaying for a second
     setTimeout(() => {
-        if (indexNumber <= 9) {
+        if (indexNumber <= 100) {
             NextQuestion(indexNumber)
         }
         else {
             handleEndGame()
         }
         resetOptionBackground()
-    }, 1000);
+    }, 500);
 }
 
 //sets options background back to null after display the right/wrong colors
@@ -341,31 +318,56 @@ function unCheckRadioButtons() {
 
 // function for when all questions being answered
 function handleEndGame() {
-    let remark = null
-    let remarkColor = null
+    let winnerName = "";
+    let maxScore = 0;
+    if(team1Score > maxScore){
+        maxScore = team1Score;
+    }
+    if(team2Score > maxScore){
+        maxScore = team2Score;
+    }
+    if(team3Score > maxScore){
+        maxScore = team3Score;
+    }
+    if(team4Score > maxScore){
+        maxScore = team4Score;
+    }
 
-    // condition check for player remark and remark color
-    if (playerScore <= 3) {
-        remark = "Bad Grades, Keep Practicing."
-        remarkColor = "red"
+    if (team1Score == maxScore){
+        winnerName = winnerName + " Team1,";
     }
-    else if (playerScore >= 4 && playerScore < 7) {
-        remark = "Average Grades, You can do better."
-        remarkColor = "orange"
+    if (team2Score == maxScore){
+        winnerName = winnerName + " Team2,";
     }
-    else if (playerScore >= 7) {
-        remark = "Excellent, Keep the good work going."
-        remarkColor = "green"
+    if (team3Score == maxScore){
+        winnerName = winnerName + " Team3,";
     }
-    const playerGrade = (playerScore / 10) * 100
+    if (team4Score == maxScore){
+        winnerName = winnerName + " Team4,";
+    }
 
-    //data to display to score board
-    document.getElementById('remarks').innerHTML = remark
-    document.getElementById('remarks').style.color = remarkColor
-    document.getElementById('grade-percentage').innerHTML = playerGrade
-    document.getElementById('wrong-answers').innerHTML = wrongAttempt
-    document.getElementById('right-answers').innerHTML = playerScore
-    document.getElementById('score-modal').style.display = "flex"
+    winnerName = winnerName.slice(0, winnerName.length-1);
+
+    var winnerNameEl = document.getElementById('winner-name');
+    winnerNameEl.textContent = winnerName;
+
+    document.getElementById('final-modal').style.display = "flex";
+    var team1fScoreEl = document.getElementById('team1-fscore');
+    team1fScoreEl.textContent = team1Score;
+
+    document.getElementById('final-modal').style.display = "flex";
+    var team2fScoreEl = document.getElementById('team2-fscore');
+    team2fScoreEl.textContent = team2Score;
+
+    document.getElementById('final-modal').style.display = "flex";
+    var team3fScoreEl = document.getElementById('team3-fscore');
+    team3fScoreEl.textContent = team3Score;
+
+    document.getElementById('final-modal').style.display = "flex";
+    var team4fScoreEl = document.getElementById('team4-fscore');
+    team4fScoreEl.textContent = team4Score;
+
+    
 
 }
 
@@ -375,7 +377,6 @@ function closeScoreModal() {
     playerScore = 0
     wrongAttempt = 0
     indexNumber = 0
-    shuffledQuestions = []
     NextQuestion(indexNumber)
     document.getElementById('score-modal').style.display = "none"
 }
@@ -384,3 +385,120 @@ function closeScoreModal() {
 function closeOptionModal() {
     document.getElementById('option-modal').style.display = "none"
 }
+
+//function to close intro modal
+function closeIntroModal() {
+    document.getElementById('intro-modal').style.display = "none";
+    document.getElementById('round1-modal').style.display = "flex";
+    document.getElementById("gameStart").play();
+}
+
+//function to close intro modal
+function OnStartQuiz() {
+    document.getElementById('intro-modal').style.display = "flex"
+}
+
+//function to close intro modal
+function closeRound1Modal() {
+    document.getElementById('round1-modal').style.display = "none"
+    NextQuestion(indexNumber)
+    document.getElementById('decreaseTeam1Score').style.display = "none"
+    document.getElementById('decreaseTeam2Score').style.display = "none"
+    document.getElementById('decreaseTeam3Score').style.display = "none"
+    document.getElementById('decreaseTeam4Score').style.display = "none"        
+}
+
+//function to close intro modal
+function closeRound2Modal() {
+    document.getElementById('round2-modal').style.display = "none"
+    document.getElementById('decreaseTeam1Score').style.display = "flex"
+    document.getElementById('decreaseTeam2Score').style.display = "flex"
+    document.getElementById('decreaseTeam3Score').style.display = "flex"
+    document.getElementById('decreaseTeam4Score').style.display = "flex"
+    roundNumber = 2;
+    indexNumber = 0;
+    NextQuestion(indexNumber)
+}
+
+//function to close intro modal
+function closeRound3Modal() {
+    document.getElementById('round3-modal').style.display = "none"
+    document.getElementById('countdown').style.display = "none"
+    roundNumber = 3;
+    indexNumber = 0;
+    NextQuestion(indexNumber)
+}
+
+//function to increase team1 score
+function increaseTeam1Score() {
+    var team1ScoreEl = document.getElementById('team1-score');
+    team1Score += 20; 
+    team1ScoreEl.textContent = team1Score;
+}
+
+//function to decrease team1 score
+function decreaseTeam1Score() {
+    var team1ScoreEl = document.getElementById('team1-score');
+    team1Score -= 10; 
+    if(team1Score < 0){
+        team1Score = 0;
+    }
+    team1ScoreEl.textContent = team1Score;
+}
+
+
+//function to increase team2 score
+function increaseTeam2Score() {
+    var team2ScoreEl = document.getElementById('team2-score');
+    team2Score += 20; 
+    team2ScoreEl.textContent = team2Score;
+}
+
+//function to decrease team2 score
+function decreaseTeam2Score() {
+    var team2ScoreEl = document.getElementById('team2-score');
+    team2Score -= 10; 
+    if(team2Score < 0){
+        team2Score = 0;
+    }
+    team2ScoreEl.textContent = team2Score;
+}
+
+
+//function to increase team3 score
+function increaseTeam3Score() {
+    var team3ScoreEl = document.getElementById('team3-score');
+    team3Score += 20; 
+    team3ScoreEl.textContent = team3Score;
+}
+
+//function to decrease team3 score
+function decreaseTeam3Score() {
+    var team3ScoreEl = document.getElementById('team3-score');
+    team3Score -= 10; 
+    if(team3Score < 0){
+        team3Score = 0;
+    }
+    team3ScoreEl.textContent = team3Score;
+}
+
+
+//function to increase team1 score
+function increaseTeam4Score() {
+    var team4ScoreEl = document.getElementById('team4-score');
+    team4Score += 20; 
+    team4ScoreEl.textContent = team4Score;
+}
+
+//function to decrease team1 score
+function decreaseTeam4Score() {
+    var team4ScoreEl = document.getElementById('team4-score');
+    team4Score -= 10; 
+    if(team4Score < 0){
+        team4Score = 0;
+    }
+    team4ScoreEl.textContent = team4Score;
+}
+
+
+

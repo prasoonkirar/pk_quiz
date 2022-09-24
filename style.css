@@ -29,8 +29,12 @@ main{
     background-position: center;
 }
 
+table, th, td {
+  border:1px solid black;
+}
+
 .game-quiz-container{
-    width: 50rem;
+    width: 80rem;
     height: 50rem;
     background-color: lightgray;
     display: flex;
@@ -38,6 +42,54 @@ main{
     align-items: center;
     justify-content: space-around;
     border-radius: 30px;
+    float: left;
+    margin-right: 5rem;
+}
+
+.quiz-score-container {
+    width: 20rem;
+    height: 40rem;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 30px;
+}
+
+.score-container {
+    /*width: 20rem;
+    height: 50rem;
+    background-color: lightgray;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 30px;
+}
+
+.teams-score{
+    height: 80px;
+    width: 80%;
+    display: inherit;
+    border: 2px solid darkgray;
+    border-radius: 5px
+}
+
+.team-cp{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-left: 10px;
+
+}
+
+.team-score{
+    line-height: 80px;
+    font-size: 60px;
+    width: 50%;
+    align-items: center;
+    direction: rtl;
 }
 
 .game-details-container{
@@ -84,6 +136,24 @@ main{
     border-radius: 20px;
     overflow: hidden;
 }
+
+#main-header {
+    font-size: 60px;
+}
+
+#main-sub-header {
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+#quiz-main-header{
+    font-size: 40px;
+}
+
+.round-heading{
+    font-size: 40px !important;
+}
+
 span label{
     width: 100%;
     height: 100%;
@@ -114,10 +184,12 @@ input[type=radio]:checked ~ .option {
 }
 
 .next-button-container{
-    width: 80%;
+    /*width: 80%;*/
     height: 3rem;
     display: flex;
     justify-content: flex-end;
+    float: right; 
+    width: 50%; 
 }
 .next-button-container button{
     width: 8rem;
@@ -133,6 +205,119 @@ input[type=radio]:checked ~ .option {
 .next-button-container button:hover{
     background-color: rgb(143, 93, 93);
 }
+
+.button-container{
+    display: flex;
+    width: 75%;
+}
+
+.show-answer-button{
+    /*width: 80%;*/
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    float: left; 
+    width: 50%; 
+}
+.show-answer-button button{
+    width: 8rem;
+    height: 2rem;
+    border-radius: 10px;
+    background: none;
+    color: rgb(25, 25, 25);
+    font-weight: 600;
+    border: 2px solid gray;
+    cursor: pointer;
+    outline: none;
+}
+.show-answer-button button:hover{
+    background-color: rgb(143, 93, 93);
+}
+
+.intro-container{
+    display: none;
+    position: fixed;
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    /*-webkit-animation: fadeIn 1.2s ease-in-out;*/
+    /*animation: fadeIn 1.2s ease-in-out;*/
+}
+
+.intro-content-container{
+    height: 95%;
+    width: 97%;
+    background-color: rgb(43, 42, 42);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 15px;
+}
+
+.intro-content-container h1{
+    font-size: 1.3rem;
+    height: 3rem;
+    color: lightgray;
+    text-align: center;
+}
+
+
+.round-container{
+    display: none;
+    position: fixed;
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    -webkit-animation: fadeIn 0.7s ease-in-out;
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+.round-content-container{
+    height: 95%;
+    width: 95%;
+    background-color: rgb(43, 42, 42);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 15px;
+}
+
+.final-content-container{
+    height: 95%;
+    width: 95%;
+    background-color: rgb(255,255,255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 15px;
+}
+
+.round-content-container h1{
+    font-size: 1.3rem;
+    height: 3rem;
+    color: lightgray;
+    text-align: center;
+}
+
 
 .modal-container{
     display: none;
@@ -270,6 +455,32 @@ input[type=radio]:checked ~ .option {
 }
 
 
+#countdown {
+  position: relative;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 120px;
+  width: 120px;
+  text-align: center;
+}
+
+#countdown-number {
+  color: white;
+  display: inline-block;
+  line-height: 120px;
+  font-size: 80px;
+  -webkit-font-size: 80px;
+
+}
+
+#tabled {
+    width: 50%;
+}
+#tablef {
+    width: 100%;
+}
+
 
 @keyframes fadeIn {
     from {opacity: 0;}
@@ -280,3 +491,6 @@ input[type=radio]:checked ~ .option {
     from {opacity: 0;}
     to {opacity: 1;}
   }
+
+
+

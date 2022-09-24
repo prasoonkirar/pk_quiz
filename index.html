@@ -5,88 +5,281 @@
     <title>Quiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body onload="NextQuestion(0)">
+<body onload="OnStartQuiz()">
     <main>
-        <!-- creating a modal for when quiz ends -->
-        <div class="modal-container" id="score-modal">
+        <!-- Initial DIV -->
+        <div class="intro-container" id="intro-modal">
           
-            <div class="modal-content-container">
-              
-                <h1>Congratulations, Quiz Completed.</h1>
-              
+            <div class="intro-content-container">
+                <div>
+                    <h1 id="main-header">SRI SATHYA SAI VIDYA VIHAR</h1>
+                    <h1 id="main-sub-header">GAIL VIJAIPUR</h1>
+                </div>
+                
                 <div class="grade-details">
-                    <p>Attempts : 10</p>
-                    <p>Wrong Answers : <span id="wrong-answers"></span></p>
-                    <p>Right Answers : <span id="right-answers"></span></p>
-                    <p>Grade : <span id="grade-percentage"></span>%</p>
-                    <p ><span id="remarks"></span></p>
+                    <h1 id="quiz-main-header">CS & IT QUIZ</h1>
                 </div>
               
                 <div class="modal-button-container">
-                    <button onclick="closeScoreModal()">Continue</button>
+                    <button onclick="closeIntroModal()">Continue</button>
                 </div>
               
             </div>
         </div>
 
-        <div class="game-quiz-container">
+        <!-- Round 1 DIV -->
+        <div class="round-container" id="round1-modal">
           
-            <div class="game-details-container">
-                <h1>Score : <span id="player-score"></span> / 10</h1>
-                <h1> Question : <span id="question-number"></span> / 10</h1>
-            </div>
-
-            <div class="game-question-container">
-                <h1 id="display-question"></h1>
-            </div>
-
-            <div class="game-options-container">
+            <div class="round-content-container">
               
-               <div class="modal-container" id="option-modal">
-                 
-                    <div class="modal-content-container">
-                         <h1>Please Pick An Option</h1>
-                      
-                         <div class="modal-button-container">
-                            <button onclick="closeOptionModal()">Continue</button>
+                <h1 class="round-heading">ROUND 1</h1>
+              
+                <div class="round-details">
+                    <h1>MIND YOUR OWN BUSINESS</h1>
+                </div>
+              
+                <div class="modal-button-container">
+                    <button onclick="closeRound1Modal()">Start</button>
+                </div>
+              
+            </div>
+        </div>
+
+        <!-- Round2 DIV -->
+        <div class="round-container" id="round2-modal">
+          
+            <div class="round-content-container">
+              
+                <h1 class="round-heading">ROUND 2</h1>
+              
+                <div class="round-details">
+                    <h1>MIND OTHER'S BUSINESS AS WELL</h1>
+                </div>
+              
+                <div class="modal-button-container">
+                    <button onclick="closeRound2Modal()">Start</button>
+                </div>
+              
+            </div>
+        </div>
+
+        <!-- Round3 DIV -->
+        <div class="round-container" id="round3-modal">
+          
+            <div class="round-content-container">
+              
+                <h1 class="round-heading">ROUND 3</h1>
+              
+                <div class="round-details">
+                    <h1>FASTEST FINGERS FIRST</h1>
+                </div>
+              
+                <div class="modal-button-container">
+                    <button onclick="closeRound3Modal()">Start</button>
+                </div>
+              
+            </div>
+        </div>
+
+        <div class="round-container" id="final-modal">
+
+            <div class="final-content-container">
+                <div class="scenef">
+                  <div class="background">
+                      <div class="tenor-gif-embed" data-postid="14463173" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/diwali-sparkles-stars-confetti-celebrate-fireworks-gif-14463173">Diwali Firecrackers Burst And Sparkle Sticker</a>from <a href="https://tenor.com/search/diwali+sparkles-stickers">Diwali Sparkles Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+                  </div>
+                  <div class="scene-content" style="font-size: 20px;">Congratulations House: <p id="winner-name" style="text-align: center;"></p></div>
+                  <div class="foreground">
+                      <div class="tenor-gif-embed" data-postid="14463173" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/diwali-sparkles-stars-confetti-celebrate-fireworks-gif-14463173">Diwali Firecrackers Burst And Sparkle Sticker</a>from <a href="https://tenor.com/search/diwali+sparkles-stickers">Diwali Sparkles Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+                  </div>
+                </div>
+                <div id="tabled">
+                    <h3 style="text-align: center;">Final Leaderboard</h3>
+                    <table id="tablef">
+                      <tr>
+                        <th>House</th>
+                        <th>Score</th>
+                      </tr>
+                      <tr>
+                        <td style="text-align: center;">Team1</td>
+                        <td style="text-align: center;"><div id="team1-fscore" class="team-fscore"></div></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: center;">Team2</td>
+                        <td style="text-align: center;"><div id="team2-fscore" class="team-fscore"></div></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: center;">Team3</td>
+                        <td style="text-align: center;"><div id="team3-fscore" class="team-fscore"></div></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: center;">Team4</td>
+                        <td style="text-align: center;"><div id="team4-fscore" class="team-fscore"></div></td>
+                      </tr>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+
+
+        <div>
+            <div class="game-quiz-container">
+          
+                <!-- <div class="game-details-container">
+                    <h1>Score : <span id="player-score"></span> / 10</h1>
+                    <h1> Question : <span id="question-number"></span> / 10</h1>
+                </div> -->
+
+                <div class="game-question-container">
+                    <h1 id="display-question"></h1>
+                </div>
+
+                <div class="game-options-container">
+                  
+                   <div class="modal-container" id="option-modal">
+                     
+                        <div class="modal-content-container">
+                             <h1>Please Pick An Option</h1>
+                          
+                             <div class="modal-button-container">
+                                <button onclick="closeOptionModal()">Continue</button>
+                            </div>
+                          
                         </div>
-                      
+                     
+                   </div>
+                  
+                    <span>
+                        <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                        <label for="option-one" class="option" id="option-one-label"></label>
+                    </span>
+                  
+
+                    <span>
+                        <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                        <label for="option-two" class="option" id="option-two-label"></label>
+                    </span>
+                  
+
+                    <span>
+                        <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                        <label for="option-three" class="option" id="option-three-label"></label>
+                    </span>
+                  
+
+                    <span>
+                        <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                        <label for="option-four" class="option" id="option-four-label"></label>
+                    </span>
+
+
+                </div>
+
+                <div class="button-container"> 
+                    <div class="show-answer-button">
+                        <button onclick="showAnswerToQuestion()">Check Answer</button>
                     </div>
-                 
-               </div>
-              
-                <span>
-                    <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
-                    <label for="option-one" class="option" id="option-one-label"></label>
-                </span>
-              
 
-                <span>
-                    <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
-                    <label for="option-two" class="option" id="option-two-label"></label>
-                </span>
-              
-
-                <span>
-                    <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
-                    <label for="option-three" class="option" id="option-three-label"></label>
-                </span>
-              
-
-                <span>
-                    <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
-                    <label for="option-four" class="option" id="option-four-label"></label>
-                </span>
-
+                    <div class="next-button-container">
+                        <button onclick="handleNextQuestion()">Next Question</button>
+                    </div>
+                </div>
 
             </div>
 
-            <div class="next-button-container">
-                <button onclick="handleNextQuestion()">Next Question</button>
+            <div class="score-container">
+                <div id="countdown">
+                    <div id="countdown-number"></div>
+                </div>
+                <div class="quiz-score-container">
+                    <h1>Scores</h1>
+                    <div class="teams-score">
+                        <div class="team-cp">
+                            <div>
+                                Team1
+                            </div>
+                            <div>
+                                <button onclick="increaseTeam1Score()">Add</button>
+                            </div>
+                            <div id="decreaseTeam1Score">
+                                <button onclick="decreaseTeam1Score()">Remove</button>
+                            </div>
+                        </div>
+                        <div id="team1-score" class="team-score"></div>
+                    </div>
+                    <div class="teams-score">
+                        <div class="team-cp">
+                            <div>
+                                Team2
+                            </div>
+                            <div>
+                                <button onclick="increaseTeam2Score()">Add</button>
+                            </div>
+                            <div id="decreaseTeam2Score">
+                                <button onclick="decreaseTeam2Score()">Remove</button>
+                            </div>
+                        </div>
+                        <div id="team2-score" class="team-score"></div>
+                    </div>
+                    <div class="teams-score">
+                        <div class="team-cp">
+                            <div>
+                                Team3
+                            </div>
+                            <div>
+                                <button onclick="increaseTeam3Score()">Add</button>
+                            </div>
+                            <div id="decreaseTeam3Score">
+                                <button onclick="decreaseTeam3Score()">Remove</button>
+                            </div>
+                        </div>
+                        <div id="team3-score" class="team-score"></div>
+                    </div>
+                    <div class="teams-score">
+                        <div class="team-cp">
+                            <div>
+                                Team4
+                            </div>
+                            <div>
+                                <button onclick="increaseTeam4Score()">Add</button>
+                            </div>
+                            <div id="decreaseTeam4Score">
+                                <button onclick="decreaseTeam4Score()">Remove</button>
+                            </div>
+                        </div>
+                        <div id="team4-score" class="team-score"></div>
+                    </div>
+                </div>
             </div>
 
         </div>
+        
     </main>
+    <audio id="countdown">
+        <source src="audio/countdown.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="gameStart">
+        <source src="audio/kbc.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="questionStart">
+        <source src="audio/question_start.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="answerLock">
+        <source src="audio/answer_lock.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="correctAns">
+        <source src="audio/correct_ans.mpeg" type="audio/mpeg">
+    </audio>
+    <audio id="wrongAns">
+        <source src="audio/wrong_ans.mpeg" type="audio/mpeg">
+    </audio>
+    <audio id="passAns">
+        <source src="audio/timeup_ans.mpeg" type="audio/mpeg">
+    </audio>
+
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <script src="quiz.js"></script>
 </body>
 </html>
