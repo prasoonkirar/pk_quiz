@@ -6,33 +6,33 @@ const round1 = [
         optionC: "5 days",
         optionD: "7 days",
         correctOption: "optionD"
-    }
+    },
 
-    // {
-    //     question: "How many players are allowed on a soccer pitch ?",
-    //     optionA: "10 players",
-    //     optionB: "11 players",
-    //     optionC: "9 players",
-    //     optionD: "12 players",
-    //     correctOption: "optionB"
-    // },
+    {
+        question: "How many players are allowed on a soccer pitch ?",
+        optionA: "10 players",
+        optionB: "11 players",
+        optionC: "9 players",
+        optionD: "12 players",
+        correctOption: "optionB"
+    },
 
-    // {
-    //     question: "Who was the first President of USA ?",
-    //     optionA: "Donald Trump",
-    //     optionB: "Barack Obama",
-    //     optionC: "Abraham Lincoln",
-    //     optionD: "George Washington",
-    //     correctOption: "optionD"
-    // },
+    {
+        question: "Who was the first President of USA ?",
+        optionA: "Donald Trump",
+        optionB: "Barack Obama",
+        optionC: "Abraham Lincoln",
+        optionD: "George Washington",
+        correctOption: "optionD"
+    },
 
-    // {
-    //     question: "30 days has ______ ?",
-    //     optionA: "January",
-    //     optionB: "December",
-    //     optionC: "June",
-    //     optionD: "August",
-    //     correctOption: "optionC"
+    {
+        question: "30 days has ______ ?",
+        optionA: "January",
+        optionB: "December",
+        optionC: "June",
+        optionD: "August",
+        correctOption: "optionC"
     // }
 ];
 
@@ -44,34 +44,34 @@ const round2 = [
         optionC: "River Niger",
         optionD: "Lake Chad",
         correctOption: "optionA"
+    },
+
+    {
+        question: "_____ is the hottest Continent on Earth ?",
+        optionA: "Oceania",
+        optionB: "Antarctica",
+        optionC: "Africa",
+        optionD: "North America",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "Which country is the largest in the world ?",
+        optionA: "Russia",
+        optionB: "Canada",
+        optionC: "Africa",
+        optionD: "Egypt",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "Which of these numbers is an odd number ?",
+        optionA: "Ten",
+        optionB: "Twelve",
+        optionC: "Eight",
+        optionD: "Eleven",
+        correctOption: "optionD"
     }
-
-    // {
-    //     question: "_____ is the hottest Continent on Earth ?",
-    //     optionA: "Oceania",
-    //     optionB: "Antarctica",
-    //     optionC: "Africa",
-    //     optionD: "North America",
-    //     correctOption: "optionC"
-    // },
-
-    // {
-    //     question: "Which country is the largest in the world ?",
-    //     optionA: "Russia",
-    //     optionB: "Canada",
-    //     optionC: "Africa",
-    //     optionD: "Egypt",
-    //     correctOption: "optionA"
-    // },
-
-    // {
-    //     question: "Which of these numbers is an odd number ?",
-    //     optionA: "Ten",
-    //     optionB: "Twelve",
-    //     optionC: "Eight",
-    //     optionD: "Eleven",
-    //     correctOption: "optionD"
-    // }
 ];
 
 const round3 = [    
@@ -82,35 +82,35 @@ const round3 = [
         optionC: "Dubai",
         optionD: "Italy",
         correctOption: "optionC"
+    },
+
+    {
+        question: "The longest river in the United Kingdom is ?",
+        optionA: "River Severn",
+        optionB: "River Mersey",
+        optionC: "River Trent",
+        optionD: "River Tweed",
+        correctOption: "optionA"
+    },
+
+
+    {
+        question: "How many permanent teeth does a dog have ?",
+        optionA: "38",
+        optionB: "42",
+        optionC: "40",
+        optionD: "36",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "Which national team won the football World cup in 2018 ?",
+        optionA: "England",
+        optionB: "Brazil",
+        optionC: "Germany",
+        optionD: "France",
+        correctOption: "optionD"
     }
-
-    // {
-    //     question: "The longest river in the United Kingdom is ?",
-    //     optionA: "River Severn",
-    //     optionB: "River Mersey",
-    //     optionC: "River Trent",
-    //     optionD: "River Tweed",
-    //     correctOption: "optionA"
-    // },
-
-
-    // {
-    //     question: "How many permanent teeth does a dog have ?",
-    //     optionA: "38",
-    //     optionB: "42",
-    //     optionC: "40",
-    //     optionD: "36",
-    //     correctOption: "optionB"
-    // },
-
-    // {
-    //     question: "Which national team won the football World cup in 2018 ?",
-    //     optionA: "England",
-    //     optionB: "Brazil",
-    //     optionC: "Germany",
-    //     optionD: "France",
-    //     correctOption: "optionD"
-    // }
 ];
 
 
