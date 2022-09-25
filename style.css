@@ -1,3 +1,9 @@
+
+.question-fsize{
+    font-size: 20px !important
+}
+
+
 *{
     margin: 0;
     padding: 0;
@@ -36,7 +42,7 @@ table, th, td {
 .game-quiz-container{
     width: 80rem;
     height: 50rem;
-    background-color: lightgray;
+    background-color: lightblue;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,6 +50,7 @@ table, th, td {
     border-radius: 30px;
     float: left;
     margin-right: 5rem;
+    border: 4px solid yellow;
 }
 
 .quiz-score-container {
@@ -55,6 +62,7 @@ table, th, td {
     align-items: center;
     justify-content: space-around;
     border-radius: 30px;
+    border: 4px solid yellow;
 }
 
 .score-container {
@@ -66,13 +74,15 @@ table, th, td {
     align-items: center;
     justify-content: space-around;
     border-radius: 30px;
+    height: 50rem;
+    
 }
 
 .teams-score{
     height: 80px;
     width: 80%;
     display: inherit;
-    border: 2px solid darkgray;
+    border: 2px solid black;
     border-radius: 5px
 }
 
@@ -89,7 +99,7 @@ table, th, td {
     font-size: 60px;
     width: 50%;
     align-items: center;
-    direction: rtl;
+    text-align: end;
 }
 
 .game-details-container{
@@ -110,7 +120,7 @@ table, th, td {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid darkgray;
+    border: 4px solid black;
     border-radius: 25px;
 }
 
@@ -132,7 +142,7 @@ table, th, td {
 .game-options-container span{
     width: 45%;
     height: 3rem;
-    border: 2px solid darkgray;
+    border: 4px solid black;
     border-radius: 20px;
     overflow: hidden;
 }

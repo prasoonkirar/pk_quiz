@@ -84,12 +84,18 @@
         <div class="round-container" id="final-modal">
 
             <div class="final-content-container">
-                <div class="scenef">
-                  <div class="background">
+                <div class="scenef" style="display: flex; flex-direction: row;">
+                  <div style="height: 200px; width: 200px;padding-left: 15px; padding-right: 15px;">
                       <div class="tenor-gif-embed" data-postid="14463173" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/diwali-sparkles-stars-confetti-celebrate-fireworks-gif-14463173">Diwali Firecrackers Burst And Sparkle Sticker</a>from <a href="https://tenor.com/search/diwali+sparkles-stickers">Diwali Sparkles Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
                   </div>
-                  <div class="scene-content" style="font-size: 20px;">Congratulations House: <p id="winner-name" style="text-align: center;"></p></div>
-                  <div class="foreground">
+                  <div style="height: 200px; width: 200px;padding-left: 15px; padding-right: 15px;">
+                      <div class="tenor-gif-embed" data-postid="14463173" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/diwali-sparkles-stars-confetti-celebrate-fireworks-gif-14463173">Diwali Firecrackers Burst And Sparkle Sticker</a>from <a href="https://tenor.com/search/diwali+sparkles-stickers">Diwali Sparkles Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+                  </div>
+                  <div class="scene-content" style="font-size: 30px;text-align: center; line-height: 2;padding-left: 15px; padding-right: 15px;">Congratulations !!!! <p id="winner-name" style="text-align: center; font-weight: bold"></p></div>
+                  <div style="height: 200px; width: 200px;padding-left: 15px; padding-right: 15px;">
+                      <div class="tenor-gif-embed" data-postid="14463173" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/diwali-sparkles-stars-confetti-celebrate-fireworks-gif-14463173">Diwali Firecrackers Burst And Sparkle Sticker</a>from <a href="https://tenor.com/search/diwali+sparkles-stickers">Diwali Sparkles Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+                  </div>
+                  <div style="height: 200px; width: 200px;padding-left: 15px; padding-right: 15px;">
                       <div class="tenor-gif-embed" data-postid="14463173" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/diwali-sparkles-stars-confetti-celebrate-fireworks-gif-14463173">Diwali Firecrackers Burst And Sparkle Sticker</a>from <a href="https://tenor.com/search/diwali+sparkles-stickers">Diwali Sparkles Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
                   </div>
                 </div>
@@ -132,7 +138,7 @@
                 </div> -->
 
                 <div class="game-question-container">
-                    <h1 id="display-question"></h1>
+                    <h1 id="display-question" class="question-fsize"></h1>
                 </div>
 
                 <div class="game-options-container">
@@ -152,25 +158,25 @@
                   
                     <span>
                         <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
-                        <label for="option-one" class="option" id="option-one-label"></label>
+                        <label for="option-one" class="option question-fsize" id="option-one-label"></label>
                     </span>
                   
 
                     <span>
                         <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
-                        <label for="option-two" class="option" id="option-two-label"></label>
+                        <label for="option-two" class="option question-fsize" id="option-two-label"></label>
                     </span>
                   
 
                     <span>
                         <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
-                        <label for="option-three" class="option" id="option-three-label"></label>
+                        <label for="option-three" class="option question-fsize" id="option-three-label"></label>
                     </span>
                   
 
                     <span>
                         <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
-                        <label for="option-four" class="option" id="option-four-label"></label>
+                        <label for="option-four" class="option question-fsize" id="option-four-label"></label>
                     </span>
 
 
@@ -182,7 +188,7 @@
                     </div>
 
                     <div class="next-button-container">
-                        <button onclick="handleNextQuestion()">Next Question</button>
+                        <button id="nextButton" onclick="handleNextQuestion()">Next Question</button>
                     </div>
                 </div>
 
@@ -196,56 +202,56 @@
                     <h1>Scores</h1>
                     <div class="teams-score">
                         <div class="team-cp">
-                            <div>
+                            <div class="question-fsize">
                                 Team1
                             </div>
                             <div>
-                                <button onclick="increaseTeam1Score()">Add</button>
+                                <button onclick="increaseTeam1Score()">Correct</button>
                             </div>
                             <div id="decreaseTeam1Score">
-                                <button onclick="decreaseTeam1Score()">Remove</button>
+                                <button onclick="decreaseTeam1Score()">Wrong</button>
                             </div>
                         </div>
-                        <div id="team1-score" class="team-score"></div>
+                        <div class="team-score" id="team1-score"></div>
                     </div>
                     <div class="teams-score">
                         <div class="team-cp">
-                            <div>
+                            <div class="question-fsize">
                                 Team2
                             </div>
                             <div>
-                                <button onclick="increaseTeam2Score()">Add</button>
+                                <button onclick="increaseTeam2Score()">Correct</button>
                             </div>
                             <div id="decreaseTeam2Score">
-                                <button onclick="decreaseTeam2Score()">Remove</button>
+                                <button onclick="decreaseTeam2Score()">Wrong</button>
                             </div>
                         </div>
                         <div id="team2-score" class="team-score"></div>
                     </div>
                     <div class="teams-score">
                         <div class="team-cp">
-                            <div>
+                            <div class="question-fsize">
                                 Team3
                             </div>
                             <div>
-                                <button onclick="increaseTeam3Score()">Add</button>
+                                <button onclick="increaseTeam3Score()">Correct</button>
                             </div>
                             <div id="decreaseTeam3Score">
-                                <button onclick="decreaseTeam3Score()">Remove</button>
+                                <button onclick="decreaseTeam3Score()">Wrong</button>
                             </div>
                         </div>
                         <div id="team3-score" class="team-score"></div>
                     </div>
                     <div class="teams-score">
                         <div class="team-cp">
-                            <div>
+                            <div class="question-fsize">
                                 Team4
                             </div>
                             <div>
-                                <button onclick="increaseTeam4Score()">Add</button>
+                                <button onclick="increaseTeam4Score()">Correct</button>
                             </div>
                             <div id="decreaseTeam4Score">
-                                <button onclick="decreaseTeam4Score()">Remove</button>
+                                <button onclick="decreaseTeam4Score()">Wrong</button>
                             </div>
                         </div>
                         <div id="team4-score" class="team-score"></div>
@@ -256,7 +262,7 @@
         </div>
         
     </main>
-    <audio id="countdown">
+    <audio id="countdownTimer">
         <source src="audio/countdown.mp3" type="audio/mpeg">
     </audio>
     <audio id="gameStart">

@@ -6,34 +6,34 @@ const round1 = [
         optionC: "5 days",
         optionD: "7 days",
         correctOption: "optionD"
-    },
-
-    {
-        question: "How many players are allowed on a soccer pitch ?",
-        optionA: "10 players",
-        optionB: "11 players",
-        optionC: "9 players",
-        optionD: "12 players",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "Who was the first President of USA ?",
-        optionA: "Donald Trump",
-        optionB: "Barack Obama",
-        optionC: "Abraham Lincoln",
-        optionD: "George Washington",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "30 days has ______ ?",
-        optionA: "January",
-        optionB: "December",
-        optionC: "June",
-        optionD: "August",
-        correctOption: "optionC"
     }
+
+    // {
+    //     question: "How many players are allowed on a soccer pitch ?",
+    //     optionA: "10 players",
+    //     optionB: "11 players",
+    //     optionC: "9 players",
+    //     optionD: "12 players",
+    //     correctOption: "optionB"
+    // },
+
+    // {
+    //     question: "Who was the first President of USA ?",
+    //     optionA: "Donald Trump",
+    //     optionB: "Barack Obama",
+    //     optionC: "Abraham Lincoln",
+    //     optionD: "George Washington",
+    //     correctOption: "optionD"
+    // },
+
+    // {
+    //     question: "30 days has ______ ?",
+    //     optionA: "January",
+    //     optionB: "December",
+    //     optionC: "June",
+    //     optionD: "August",
+    //     correctOption: "optionC"
+    // }
 ];
 
 const round2 = [
@@ -44,34 +44,34 @@ const round2 = [
         optionC: "River Niger",
         optionD: "Lake Chad",
         correctOption: "optionA"
-    },
-
-    {
-        question: "_____ is the hottest Continent on Earth ?",
-        optionA: "Oceania",
-        optionB: "Antarctica",
-        optionC: "Africa",
-        optionD: "North America",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "Which country is the largest in the world ?",
-        optionA: "Russia",
-        optionB: "Canada",
-        optionC: "Africa",
-        optionD: "Egypt",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "Which of these numbers is an odd number ?",
-        optionA: "Ten",
-        optionB: "Twelve",
-        optionC: "Eight",
-        optionD: "Eleven",
-        correctOption: "optionD"
     }
+
+    // {
+    //     question: "_____ is the hottest Continent on Earth ?",
+    //     optionA: "Oceania",
+    //     optionB: "Antarctica",
+    //     optionC: "Africa",
+    //     optionD: "North America",
+    //     correctOption: "optionC"
+    // },
+
+    // {
+    //     question: "Which country is the largest in the world ?",
+    //     optionA: "Russia",
+    //     optionB: "Canada",
+    //     optionC: "Africa",
+    //     optionD: "Egypt",
+    //     correctOption: "optionA"
+    // },
+
+    // {
+    //     question: "Which of these numbers is an odd number ?",
+    //     optionA: "Ten",
+    //     optionB: "Twelve",
+    //     optionC: "Eight",
+    //     optionD: "Eleven",
+    //     correctOption: "optionD"
+    // }
 ];
 
 const round3 = [    
@@ -82,35 +82,35 @@ const round3 = [
         optionC: "Dubai",
         optionD: "Italy",
         correctOption: "optionC"
-    },
-
-    {
-        question: "The longest river in the United Kingdom is ?",
-        optionA: "River Severn",
-        optionB: "River Mersey",
-        optionC: "River Trent",
-        optionD: "River Tweed",
-        correctOption: "optionA"
-    },
-
-
-    {
-        question: "How many permanent teeth does a dog have ?",
-        optionA: "38",
-        optionB: "42",
-        optionC: "40",
-        optionD: "36",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "Which national team won the football World cup in 2018 ?",
-        optionA: "England",
-        optionB: "Brazil",
-        optionC: "Germany",
-        optionD: "France",
-        correctOption: "optionD"
     }
+
+    // {
+    //     question: "The longest river in the United Kingdom is ?",
+    //     optionA: "River Severn",
+    //     optionB: "River Mersey",
+    //     optionC: "River Trent",
+    //     optionD: "River Tweed",
+    //     correctOption: "optionA"
+    // },
+
+
+    // {
+    //     question: "How many permanent teeth does a dog have ?",
+    //     optionA: "38",
+    //     optionB: "42",
+    //     optionC: "40",
+    //     optionD: "36",
+    //     correctOption: "optionB"
+    // },
+
+    // {
+    //     question: "Which national team won the football World cup in 2018 ?",
+    //     optionA: "England",
+    //     optionB: "Brazil",
+    //     optionC: "Germany",
+    //     optionD: "France",
+    //     correctOption: "optionD"
+    // }
 ];
 
 
@@ -124,6 +124,7 @@ var team1Score = 0;
 var team2Score = 0;
 var team3Score = 0;
 var team4Score = 0;
+var enableNext = true;
 
 
 // function for displaying next question in the array to dom
@@ -174,12 +175,14 @@ function NextQuestion(index) {
         document.getElementById("answerLock").play();   
     });   
 
+    enableNext = false;
     
     
     var countdownNumberEl = document.getElementById('countdown-number');
     var countdown = 30;
 
     countdownNumberEl.textContent = countdown;
+    document.getElementById("countdownTimer").play();
 
     if (roundNumber !=3) {
         myInterval = setInterval(function() {
@@ -193,6 +196,7 @@ function NextQuestion(index) {
         }, 1000);    
     }
     
+    
 
 }
 
@@ -200,6 +204,8 @@ function NextQuestion(index) {
 function checkForAnswer() {
     var countdownNumberEl = document.getElementById('countdown-number');
     clearInterval(myInterval);
+    document.getElementById("countdownTimer").pause();
+    document.getElementById("countdownTimer").currentTime = 0;
     countdownNumberEl.textContent = "";
 
 
@@ -256,7 +262,9 @@ function checkForAnswer() {
                 questionNumber++
             }, 1000)
         }
+        enableNext = true;
     })
+
 
 }
 
@@ -268,6 +276,12 @@ function showAnswerToQuestion() {
 
 //called when the next button is called
 function handleNextQuestion() {
+
+
+    if (!enableNext) {
+        document.getElementById('option-modal').style.display = "flex"
+        return
+    }
 
     if(roundNumber == 1 && round1.length == indexNumber){
         document.getElementById('round2-modal').style.display = "flex"
@@ -440,9 +454,6 @@ function increaseTeam1Score() {
 function decreaseTeam1Score() {
     var team1ScoreEl = document.getElementById('team1-score');
     team1Score -= 10; 
-    if(team1Score < 0){
-        team1Score = 0;
-    }
     team1ScoreEl.textContent = team1Score;
 }
 
@@ -458,9 +469,6 @@ function increaseTeam2Score() {
 function decreaseTeam2Score() {
     var team2ScoreEl = document.getElementById('team2-score');
     team2Score -= 10; 
-    if(team2Score < 0){
-        team2Score = 0;
-    }
     team2ScoreEl.textContent = team2Score;
 }
 
@@ -476,9 +484,6 @@ function increaseTeam3Score() {
 function decreaseTeam3Score() {
     var team3ScoreEl = document.getElementById('team3-score');
     team3Score -= 10; 
-    if(team3Score < 0){
-        team3Score = 0;
-    }
     team3ScoreEl.textContent = team3Score;
 }
 
@@ -494,9 +499,6 @@ function increaseTeam4Score() {
 function decreaseTeam4Score() {
     var team4ScoreEl = document.getElementById('team4-score');
     team4Score -= 10; 
-    if(team4Score < 0){
-        team4Score = 0;
-    }
     team4ScoreEl.textContent = team4Score;
 }
 
