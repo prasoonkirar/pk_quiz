@@ -33,7 +33,7 @@ const round1 = [
         optionC: "June",
         optionD: "August",
         correctOption: "optionC"
-    // }
+    }
 ];
 
 const round2 = [
